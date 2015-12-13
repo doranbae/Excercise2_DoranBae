@@ -1,3 +1,4 @@
+
 from __future__ import absolute_import, print_function, unicode_literals
 import psycopg2
 import sys
@@ -12,12 +13,10 @@ def selectAllPostGres():
         records = cur.fetchall()
 
         if not records:
-        	print ("Empty Data")
+                print ("Empty Data")
 
         for rec in records:
             print ("(word = %s , count = %s)" % (rec[0], rec[1]))
-
-        print("Row Count : %s" % cur.rowcount)
 
         conn.commit()
         conn.close()
@@ -34,13 +33,11 @@ def selectArgPostGres(word):
         cur.execute("SELECT word, count from tweetwordcount WHERE word=%s", (word,))
         records = cur.fetchall()
 
-		if not records:
-			print ("Empty Data")
+        if not records:
+                print ("Empty Data")
 
         for rec in records:
             print ("Total number of occurences of \"%s\" : %s" % (rec[0], rec[1]))
-
-        print("Row Count : %s" % cur.rowcount)
 
         conn.commit()
         conn.close()
@@ -55,3 +52,9 @@ if __name__ == '__main__':
     else:
         selectAllPostGres()
 
+
+
+
+
+
+        
